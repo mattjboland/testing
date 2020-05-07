@@ -1,5 +1,5 @@
 function initMap() {
-    var map = new google.maps.Map(document.getElementById("hotel-map"), {
+    var map = new google.maps.Map(document.getElementById("hotels"), {
         zoom: 3,
         center: {
             lat: 46.1341,

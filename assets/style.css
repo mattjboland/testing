@@ -1,0 +1,364 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,200,300,400,500,600,700|Exo:100,200,300,400,500,600,700');
+
+/*----------------------------------------Body---*/
+
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+#heading-intro {
+    color: black;
+    position: relative;
+    margin-top: 20px;
+}
+
+#p-intro {
+    color: black;
+    position: relative;
+    line-height: 25px;
+    text-shadow: black;
+    text-align: left;
+}
+
+/*----------------------------------------Background Image/Images---*/
+
+body, html {
+  height: 100%;
+}
+
+#bg {  
+  position: fixed; 
+  top: -50%; 
+  left: -50%; 
+  width: 200%; 
+  height: 200%;
+  opacity: 20%;
+}
+
+#bg img {
+  position: absolute;
+  top: 0; 
+  left: 0; 
+  right: 0; 
+  bottom: 0; 
+  margin: auto; 
+  min-width: 50%;
+  min-height: 50%;
+}
+
+.float-img {
+    width: 350px;
+    height: 270px;
+    float: left;
+    margin-right: 20px;
+    margin-bottom: 5px;
+    border: solid black 1px;
+    border-radius: 5px;
+    padding: 2px;
+}
+
+.float-img1 {
+    width: 350px;
+    height: 270px;
+    float: right;
+    margin-top: 30px;
+    margin-right: 20px;
+    margin-bottom: 5px;
+    border: solid black 1px;
+    border-radius: 5px;
+    padding: 2px;
+}
+
+.float-img2 {
+    width: 350px;
+    height: 270px;
+    float: left;
+    margin-right: 20px;
+    margin-bottom: 5px;
+    border: solid black 1px;
+    border-radius: 5px;
+    padding: 2px;
+}
+
+.float-img3 {
+    width: 350px;
+    height: 270px;
+    float: left;
+    margin-right: 20px;
+    margin-bottom: 5px;
+    border: solid black 1px;
+    border-radius: 5px;
+    padding: 2px;
+}
+
+#ireland-img {
+    width: 110px;
+    height: 75px;
+    text-align: center;
+}
+
+.float-img4 {
+    width: 350px;
+    height: 270px;
+    float: right;
+    margin-top: 55px;
+    margin-right: 20px;
+    margin-bottom: 5px;
+    border: solid black 1px;
+    border-radius: 5px;
+    padding: 2px;
+}
+
+.float-img5 {
+    width: 350px;
+    height: 270px;
+    float: left;
+    margin-top: 5px;
+    margin-right: 20px;
+    margin-bottom: 5px;
+    border: solid black 1px;
+    border-radius: 5px;
+    padding: 2px;
+}
+
+.float-img6 {
+    width: 350px;
+    height: 270px;
+    float: right;
+    margin-top: 30px;
+    margin-right: 20px;
+    margin-bottom: 5px;
+    border: solid black 1px;
+    border-radius: 5px;
+    padding: 2px;
+}
+
+.float-img7 {
+    width: 350px;
+    height: 270px;
+    float: left;
+    margin-top: 5px;
+    margin-right: 20px;
+    margin-bottom: 5px;
+    border: solid black 1px;
+    border-radius: 5px;
+    padding: 2px;
+}
+
+.float-img8 {
+    width: 350px;
+    height: 270px;
+    float: right;
+    margin-top: 30px;
+    margin-right: 20px;
+    margin-bottom: 60px;
+    border: solid black 1px;
+    border-radius: 5px;
+    padding: 2px;
+}
+
+.float-img9 {
+    width: 350px;
+    height: 270px;
+    float: right;
+    margin-top: 5px;
+    margin-right: 20px;
+    margin-bottom: 5px;
+    border: solid black 1px;
+    border-radius: 5px;
+    padding: 2px;
+}
+
+.float-img10 {
+    width: 350px;
+    height: 270px;
+    float: left;
+    margin-top: 25px;
+    margin-right: 20px;
+    margin-bottom: 5px;
+    border: solid black 1px;
+    border-radius: 5px;
+    padding: 2px;
+}
+
+.float-img11 {
+    width: 350px;
+    height: 270px;
+    float: right;
+    margin-top: 80px;
+    margin-right: 20px;
+    margin-bottom: 5px;
+    border: solid black 1px;
+    border-radius: 5px;
+    padding: 2px;
+}
+
+.float-img12 {
+    width: 350px;
+    height: 270px;
+    float: left;
+    margin-top: 5px;
+    margin-right: 20px;
+    margin-bottom: 5px;
+    border: solid black 1px;
+    border-radius: 5px;
+    padding: 2px;
+}
+
+.float-img13 {
+    width: 350px;
+    height: 270px;
+    float: right;
+    margin-top: 30px;
+    margin-right: 20px;
+    margin-bottom: 5px;
+    border: solid black 1px;
+    border-radius: 5px;
+    padding: 2px;
+}
+
+.float-img14 {
+    width: 550px;
+    height: 270px;
+    float: left;
+    margin-top: 30px;
+    margin-right: 20px;
+    margin-bottom: 5px;
+    border: solid black 1px;
+    border-radius: 5px;
+    padding: 2px;
+}
+
+.float-img15 {
+    width: 350px;
+    height: 270px;
+    float: left;
+    margin-top: 5px;
+    margin-right: 20px;
+    margin-bottom: 5px;
+    border: solid black 1px;
+    border-radius: 5px;
+    padding: 2px;
+}
+
+.float-img16 {
+    width: 350px;
+    height: 270px;
+    float: right;
+    margin-top: 60px;
+    margin-right: 20px;
+    margin-bottom: 5px;
+    border: solid black 1px;
+    border-radius: 5px;
+    padding: 2px;
+}
+
+.float-img17 {
+    width: 350px;
+    height: 270px;
+    float: left;
+    margin-top: 5px;
+    margin-right: 20px;
+    margin-bottom: 5px;
+    border: solid black 1px;
+    border-radius: 5px;
+    padding: 2px;
+}
+
+.float-img18 {
+    width: 350px;
+    height: 270px;
+    float: right;
+    margin-top: 5px;
+    margin-right: 20px;
+    margin-bottom: 5px;
+    border: solid black 1px;
+    border-radius: 5px;
+    padding: 2px;
+}
+
+/*----------------------------------------NavBar---*/
+
+.navbar {
+    opacity: 0.8;
+}
+
+/*.navbar-custom {
+    background-color: #0d2ff0;
+}*/
+
+/*----------------------------------------Logo---*/
+
+#logo {
+    position: relative;
+    align-items: center;
+    /*opacity: 1;*/
+    /*background-blend-mode: multiply;*/
+    /*pointer-events: none;*/
+}
+
+/*#england {
+    margin-right: 75px;
+    background-blend-mode: multiply;
+}
+
+#france {
+    margin-right: 75px;
+}
+
+#ireland {
+    margin-right: 75px;
+}
+
+#italy {
+    margin-right: 75px;
+}
+
+#scotland {
+    margin-right: 75px;
+}*/
+
+
+ 
+/*----------------------------------------Map---*/
+
+div#map {
+    min-height: 400px;
+}
+
+.bg-color-map {
+    opacity: 1;
+    margin-top: 20px;
+}
+
+.bg-color-hotel {
+    opacity: 1;
+    margin-top: 50px;
+}
+
+/*----------------------------------------Graphs---*/
+
+#total-outright-wins {
+    position: relative;
+}
+
+#total-grand-slams {
+    position: relative;
+}
+
+/*----------------------------------------Footer---*/
+
+footer {
+    background-color: #0d2ff0;
+    color: #fafafa;
+    min-height: 120px;
+    margin: 0;
+}
+
+#footer-details {
+    margin: 20px;
+}
+
+#gh-avatar {
+    border-radius: 5px;
+}

@@ -322,7 +322,11 @@ body, html {
  
 /*----------------------------------------Map---*/
 
-div#map {
+div#stadiums {
+    min-height: 400px;
+}
+
+div#hotels {
     min-height: 400px;
 }
 

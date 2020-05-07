@@ -7,7 +7,16 @@ function initMap() {
         }
     });
 
-    var labels = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    //var labels = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+    var labels = [
+        "Aviva Stadium",
+        "Twickenham Stadium",
+        "Millennium Stadium",
+        "Murrayfield Stadium",
+        "Stade de France",
+        "Stadio Olimpico"
+    ];
 
     var titles = [
         "Aviva Stadium",
@@ -34,7 +43,7 @@ function initMap() {
             position: location,
             title: titles[i % titles.length],
             icon: 'assets/images/rugby_ball.png',
-            //label: labels[i % labels.length]
+            label: labels[i % labels.length]
         });
     });
 

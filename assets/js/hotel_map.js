@@ -1,5 +1,5 @@
 function initMap() {
-    var map = new google.maps.Map(document.getElementById("hotels"), {
+    var hotels = new google.maps.Map(document.getElementById("hotels"), {
         zoom: 3,
         center: {
             lat: 46.1341,
@@ -38,6 +38,6 @@ function initMap() {
         });
     });
 
-    var markerCluster = new MarkerClusterer(map, markers,
+    var markerCluster = new MarkerClusterer(hotels, markers,
     {imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'});
 }

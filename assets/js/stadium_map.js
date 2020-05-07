@@ -1,5 +1,5 @@
 function initMap() {
-    var map = new google.maps.Map(document.getElementById("stadiums"), {
+    var stadiums = new google.maps.Map(document.getElementById("stadiums"), {
         zoom: 3,
         center: {
             lat: 46.1341,
@@ -38,6 +38,6 @@ function initMap() {
         });
     });
 
-    var markerCluster = new MarkerClusterer(map, markers,
+    var markerCluster = new MarkerClusterer(stadiums, markers,
     {imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'});
 }

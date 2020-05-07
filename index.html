@@ -12,7 +12,7 @@
     </head>
 
     <body>
-    
+
         <div id="bg">
             <img src="assets/images/Avivastadium.jpg" alt="">
         </div>
@@ -87,17 +87,20 @@
                             <h3 class="section-heading text-center">Stadium Locations</h3>
                         </div>
                     </div>
-                    <div id="map"></div>
+                    <div id="stadium-map"></div>
                 </div>
             </div>
 
-            <div class="col-xs-12 col-sm-12 col-md-8 bg-color-hotel">
-            <div class="row">
-            <div class="col-md-12">
-                <h3 class="section-heading text-center">Hotels Near By</h3>
+            <div class="row row-table">
+                <div class="col-xs-12 col-sm-12 col-md-4 bg-color-map">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h3 class="section-heading text-center">Hotels Nearby</h3>
+                        </div>
+                    </div>
+                    <div id="hotel-map"></div>
+                </div>
             </div>
-            </div>
-        </div>
         </section>
 
         <footer class="container-fluid">
@@ -110,20 +113,19 @@
                 </div>
                 <div class="col-sm-4">
                     <h5>Developed by Matt Boland</h5>
-                <div id="gh-avatar">
-                <a href="https://https://github.com/mattjboland" target="_blank">
-                <img src="https://avatars0.githubusercontent.com/u/47538280?s=400&u=a9e69502dfd75b8bb79f0b22dad83c3b1abd8dc5&v=4"
-                width="80" height="80" alt="mattjboland">
-                </a>
-                </div>
+                    <div id="gh-avatar">
+                        <a href="https://https://github.com/mattjboland" target="_blank">
+                            <img src="https://avatars0.githubusercontent.com/u/47538280?s=400&u=a9e69502dfd75b8bb79f0b22dad83c3b1abd8dc5&v=4" width="80" height="80" alt="mattjboland">
+                        </a>
+                    </div>
                 </div>
                 
                 <div class="col-sm-4">
                     <h5 class="gh-button"></h5>
-                        <button type="button" class="btn btn-outline-primary" onclick="function(repoInformationHTML)">Click here
+                    <button type="button" class="btn btn-outline-primary" onclick="function(repoInformationHTML)">Click here
                         <div id="gh-user-data"></div>
-                <div id="gh-repo-data"></div>
-                </button>
+                        <div id="gh-repo-data"></div>
+                    </button>
                 </div>
             </div>
         </footer>
@@ -138,7 +140,8 @@
         <script async defer
             src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAcqvXbZg7UDx_ibTInMtu8cfaQI2eEHwU&callback=initMap">
         </script>
-        <script src="assets/js/maps.js"></script>
+        <script src="assets/js/stadium-map.js"></script>
+        <script src="assets/js/hotel-map.js"></script>
     </body>
 
 </html>

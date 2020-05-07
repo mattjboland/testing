@@ -33,7 +33,7 @@ function initMap() {
             animation: google.maps.Animation.DROP,
             position: location,
             title: titles[i % titles.length],
-            icon: assets/images/rugby_ball.png,
+            icon: 'assets/images/rugby_ball.png',
             //label: labels[i % labels.length]
         });
     });

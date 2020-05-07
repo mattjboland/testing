@@ -38,6 +38,6 @@ function initMap() {
         });
     });
 
-    var hotelMmarkerCluster = new MarkerClusterer(hotels, markers,
+    var hotelMarkerCluster = new MarkerClusterer(hotels, markers,
     {imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'});
 }

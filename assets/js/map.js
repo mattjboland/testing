@@ -1,5 +1,6 @@
 var hotelMap;
 var hotels;
+var hotelMarkers = [];
 var stadiumMap;
 var otherInfo = [];
 
@@ -61,11 +62,13 @@ function addStadiums() {
         // When user clicks on the marker, show info bubble and update hotel map
         marker.addListener('click', function () {
             closeOtherInfo();
-            infowindow.open(stadiumMap, marker);
-            otherInfo[0] = infowindow;
-
+            
             // Perform hotel search for this stadium
             updateHotelsMap(i);
+            
+            // Show the Stadium name bubble
+            infowindow.open(stadiumMap, marker);
+            otherInfo[0] = infowindow;
         });
 
         return marker;
@@ -87,7 +90,7 @@ function closeOtherInfo() {
 // Search for hotels around the stadium and move map to that location
 function updateHotelsMap(stadiumIndex) {
     hotelMap.panTo(stadiums[stadiumIndex].location);
-    hotelMap.setZoom(15);
+    hotelMap.setZoom(20);
     
     // Search for hotels in the selected city, within the viewport of the map.
     var search = {
@@ -96,7 +99,7 @@ function updateHotelsMap(stadiumIndex) {
     };
 
     hotels.nearbySearch(search, function(results, status) {
-        alert('found '+results.length+' hotels... Status = '+status);
+
         if (status === google.maps.places.PlacesServiceStatus.OK) {
             //clearResults();
             //clearMarkers();
@@ -104,24 +107,23 @@ function updateHotelsMap(stadiumIndex) {
             // Create a marker for each hotel found, and
             // assign a letter of the alphabetic to each marker icon.
 
-            /*
             for (var i = 0; i < results.length; i++) {
                 var markerLetter = String.fromCharCode('A'.charCodeAt(0) + (i % 26));
-                var markerIcon = MARKER_PATH + markerLetter + '.png';
+                var markerIcon = 'https://developers.google.com/maps/documentation/javascript/images/marker_green'; + markerLetter + '.png';
+                
                 // Use marker animation to drop the icons incrementally on the map.
-                markers[i] = new google.maps.Marker({
-                position: results[i].geometry.location,
-                animation: google.maps.Animation.DROP,
-                icon: markerIcon
-            });
+                hotelMarkers[i] = new google.maps.Marker({
+                    position: results[i].geometry.location,
+                    animation: google.maps.Animation.DROP,
+                    icon: markerIcon
+                });
             
-            // If the user clicks a hotel marker, show the details of that hotel
-            // in an info window.
-            markers[i].placeResult = results[i];
-            google.maps.event.addListener(markers[i], 'click', showInfoWindow);
-            setTimeout(dropMarker(i), i * 100);
-            addResult(results[i], i);
-            */
+                // If the user clicks a hotel marker, show the details of that hotel in an info window.
+                hotelMarkers[i].placeResult = results[i];
+                //google.maps.event.addListener(hotelMarkers[i], 'click', showInfoWindow);
+                setTimeout(dropMarker(i), i * 100);
+                addResult(results[i], i);
+            }
         }
     });
 }

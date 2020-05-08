@@ -1,4 +1,82 @@
+// Stadiums Map
+var stadiums = [
+    {
+        name: "Aviva Stadium",
+        location: [{lat: 53.3352, lng: -6.2285}],
+        info: '<div id="content"><h1 id="firstHeading" class="firstHeading">Aviva</h1><div id="bodyContent"><a href="https://www.google.ie>Click here to See Hotels nearby</a></p></div>',
+    },
+    {
+        name: "Twickenham Stadium",
+        location: [{lat: 51.4559, lng: -0.3415}],
+        info: '<div id="content"><h1 id="firstHeading" class="firstHeading">Twickenham</h1><div id="bodyContent"><a href="https://en.wikipedia.org/w/index.php?title=Uluru&oldid=297882194">Click here to See Hotels nearby</a></p></div>'
+    },
+    {
+        name: "Millennium Stadium",
+        location: [{lat: 51.4782, lng: -3.1826}],
+        info: '<div id="content"><h1 id="firstHeading" class="firstHeading">Millennium</h1><div id="bodyContent"><a href="https://en.wikipedia.org/w/index.php?title=Uluru&oldid=297882194">Click here to See Hotels nearby</a></p></div>'
+    },
+    {
+        name: "Murrayfield Stadium",
+        location: [{lat: 55.9422, lng: -3.2409}],
+        info: '<div id="content"><h1 id="firstHeading" class="firstHeading">Murrayfield</h1><div id="bodyContent"><a href="https://en.wikipedia.org/w/index.php?title=Uluru&oldid=297882194">Click here to See Hotels nearby</a></p></div>'
+    },
+    {
+        name: "Stade de France",
+        location: [{lat: 48.92442731, lng: 2.36011326}],
+        info: '<div id="content"><h1 id="firstHeading" class="firstHeading">Stade de France</h1><div id="bodyContent"><a href="https://en.wikipedia.org/w/index.php?title=Uluru&oldid=297882194">Click here to See Hotels nearby</a></p></div>'
+    },
+    {
+        name: "Stadio Olimpico",
+        location: [{lat: 41.9341, lng: 12.4547}],
+        info: '<div id="content"><h1 id="firstHeading" class="firstHeading">Stadio Olimpico</h1><div id="bodyContent"><a href="https://en.wikipedia.org/w/index.php?title=Uluru&oldid=297882194">Click here to See Hotels nearby</a></p></div>' 
+    }
+];
+
+function addStadiums() {
+    for (var i = 0; i < stadiums.length; i++) {
+
+        const marker = new google.maps.Marker({
+            map: stadiumMap,
+            draggable: false,
+            animation: google.maps.Animation.DROP,
+            position: stadiums[i].location[0],
+            title: stadiums[i].name,
+            icon: 'assets/images/rugby_ball.png'
+        });
+
+        const infowindow = new google.maps.InfoWindow({
+            content: stadiums[i].info,
+            maxWidth: 200
+        });
+
+        marker.addListener('click', function () {
+            closeOtherInfo();
+            infowindow.open(marker.get('stadiumMap'), marker);
+            InforObj[0] = infowindow;
+        });
+        marker.addListener('mouseover', function () {
+            closeOtherInfo();
+            infowindow.open(marker.get('stadiumMap'), marker);
+            InforObj[0] = infowindow;
+        });
+        marker.addListener('mouseout', function () {
+            closeOtherInfo();
+            infowindow.close();
+            InforObj[0] = infowindow;
+        });
+    }
+}
+
+function closeOtherInfo() {
+    if (InforObj.length > 0) {
+        InforObj[0].set("marker", null);
+        InforObj[0].close();
+        InforObj.length = 0;
+    }
+}
+
 function initMap() {
+
     var stadiumMap = new google.maps.Map(document.getElementById("stadiums"), {
         zoom: 3,
         center: {
@@ -7,51 +85,33 @@ function initMap() {
         }
     });
 
-    var stadiumTitles = [
-        "Aviva Stadium",
-        "Twickenham Stadium",
-        "Millennium Stadium",
-        "Murrayfield Stadium",
-        "Stade de France",
-        "Stadio Olimpico"
-    ];
-
-    var stadiumLocations = [
-        {lat: 53.3352, lng: -6.2285},
-        {lat: 51.4559, lng: -0.3415},
-        {lat: 51.4782, lng: -3.1826},
-        {lat: 55.9422, lng: -3.2409},
-        {lat: 48.92442731, lng: 2.36011326},
-        {lat: 41.9341, lng: 12.4547},
-    ];
-
-    var stadiumInfo = [
-        '<div id="content"><h1 id="firstHeading" class="firstHeading">Uluru</h1><div id="bodyContent"><a href="https://en.wikipedia.org/w/index.php?title=Uluru&oldid=297882194">Click here to See Hotels nearby</a></p></div>',
-        '<div id="content"><h1 id="firstHeading" class="firstHeading">Uluru</h1><div id="bodyContent"><a href="https://en.wikipedia.org/w/index.php?title=Uluru&oldid=297882194">Click here to See Hotels nearby</a></p></div>',
-        '<div id="content"><h1 id="firstHeading" class="firstHeading">Uluru</h1><div id="bodyContent"><a href="https://en.wikipedia.org/w/index.php?title=Uluru&oldid=297882194">Click here to See Hotels nearby</a></p></div>',
-        '<div id="content"><h1 id="firstHeading" class="firstHeading">Uluru</h1><div id="bodyContent"><a href="https://en.wikipedia.org/w/index.php?title=Uluru&oldid=297882194">Click here to See Hotels nearby</a></p></div>',
-        '<div id="content"><h1 id="firstHeading" class="firstHeading">Uluru</h1><div id="bodyContent"><a href="https://en.wikipedia.org/w/index.php?title=Uluru&oldid=297882194">Click here to See Hotels nearby</a></p></div>',
-        '<div id="content"><h1 id="firstHeading" class="firstHeading">Uluru</h1><div id="bodyContent"><a href="https://en.wikipedia.org/w/index.php?title=Uluru&oldid=297882194">Click here to See Hotels nearby</a></p></div>'        
-    ];
-
-    var stadiumMarkers = stadiumLocations.map(function(location, i){
+    addMarkerInfo();
+    
+    //var stadiumMarkerCluster = new MarkerClusterer(stadiumMap, stadiumMarkers,{imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'});
+    
+    /*
+    var stadiumMarkers = stadiums.map(function(stadium, i){
         marker = new google.maps.Marker({
             draggable: false,
             animation: google.maps.Animation.DROP,
-            position: location,
-            title: stadiumTitles[i % stadiumTitles.length],
+            position: stadium.location,
+            title: stadium.name[i % stadiumTitles.length],
             icon: 'assets/images/rugby_ball.png'
         });
+
         var infowindow = new google.maps.InfoWindow({
-            content: stadiumInfo[i],
+            content: stadium.info,
             maxWidth: 200
         });
+
         marker.addListener('click', function() {
           infowindow.open(stadiumMap, marker);
         });
         return marker;
     });
-
+    */
+   
+    // Hotels Map
     var hotelMap = new google.maps.Map(document.getElementById("hotels"), {
         zoom: 3,
         center: {
@@ -71,6 +131,5 @@ function initMap() {
         });
     });
 
-    var stadiumMarkerCluster = new MarkerClusterer(stadiumMap, stadiumMarkers,{imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'});
     var hotelMarkerCluster = new MarkerClusterer(hotelMap, hotelMarkers,{imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'});
 }

@@ -113,7 +113,7 @@ function updateHotelsMap(stadiumIndex) {
                 hotelMarkers[i] = new google.maps.Marker({
                     position: results[i].geometry.location,
                     animation: google.maps.Animation.DROP,
-                    icon: 'https://developers.google.com/maps/documentation/javascript/images/marker_green',
+                    icon: 'https://developers.google.com/maps/documentation/javascript/images/marker_green'+labels[i]+'.png',
                     label: labels[i]
                 });
             

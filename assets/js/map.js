@@ -33,7 +33,7 @@ function initMap() {
         '<div id="content"><h1 id="firstHeading" class="firstHeading">Uluru</h1><div id="bodyContent"><a href="https://en.wikipedia.org/w/index.php?title=Uluru&oldid=297882194">Click here to See Hotels nearby</a></p></div>',
         '<div id="content"><h1 id="firstHeading" class="firstHeading">Uluru</h1><div id="bodyContent"><a href="https://en.wikipedia.org/w/index.php?title=Uluru&oldid=297882194">Click here to See Hotels nearby</a></p></div>'        
     ];
-    
+
     var stadiumMarkers = stadiumLocations.map(function(location, i){
         marker = new google.maps.Marker({
             draggable: false,
@@ -43,7 +43,7 @@ function initMap() {
             icon: 'assets/images/rugby_ball.png'
         });
         var infowindow = new google.maps.InfoWindow({
-            content: stadiumInfo[position],
+            content: stadiumInfo[i],
             maxWidth: 200
         });
         marker.addListener('click', function() {

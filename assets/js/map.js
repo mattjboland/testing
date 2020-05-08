@@ -9,37 +9,37 @@ var stadiums = [
         id: "aviva",
         name: "Aviva Stadium",
         location: {lat: 53.3352, lng: -6.2285},
-        info: '<div id="content"><h4>Aviva Stadium</h4></div>'
+        info: '<div id="content"><b>Aviva Stadium</b></div>'
     },
     {
         id: "twickenham",
         name: "Twickenham Stadium",
         location: {lat: 51.4559, lng: -0.3415},
-        info: '<div id="content"><h4>Twickenham Stadium</h4></div>'
+        info: '<div id="content"><b>Twickenham Stadium</b></div>'
     },
     {
         id: "millennium",
         name: "Millennium Stadium",
         location: {lat: 51.4782, lng: -3.1826},
-        info: '<div id="content"><h4>Millennium Stadium</h4></div>'
+        info: '<div id="content"><b>Millennium Stadium</b></div>'
     },
     {
         id: "murrayfield",
         name: "Murrayfield Stadium",
         location: {lat: 55.9422, lng: -3.2409},
-        info: '<div id="content"><h4>Murrayfield Stadium</h4></div>'
+        info: '<div id="content"><b>Murrayfield Stadium</b></div>'
     },
     {
         id: "stade",
         name: "Stade de France",
         location: {lat: 48.92442731, lng: 2.36011326},
-        info: '<div id="content"><h4>Stade de France</h4></div>'
+        info: '<div id="content"><b>Stade de France</b></div>'
     },
     {
         id: "stadio",
         name: "Stadio Olimpico",
         location: {lat: 41.9341, lng: 12.4547},
-        info: '<div id="content"><h4>Stadio Olimpico</h4></div>'
+        info: '<div id="content"><b>Stadio Olimpico</b></div>'
     }
 ];
 

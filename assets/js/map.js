@@ -68,7 +68,7 @@ function addStadiums() {
             otherInfo[0] = infowindow;
 
             // Perform hotel search for this stadium
-            updateHotelsMap(i);
+            //updateHotelsMap(i);
         });
 
         return marker;

@@ -25,14 +25,47 @@ function initMap() {
         {lat: 41.9341, lng: 12.4547},
     ];
 
+    function getInfo(position) {
+        var stadiumInfo = [
+            {'<div id="content"><h1 id="firstHeading" class="firstHeading">Uluru</h1><div id="bodyContent">'+
+            '<a href="https://en.wikipedia.org/w/index.php?title=Uluru&oldid=297882194">'+
+            'Click here to See Hotels nearby</a></p></div>'},
+            {'<div id="content"><h1 id="firstHeading" class="firstHeading">Uluru</h1><div id="bodyContent">'+
+            '<a href="https://en.wikipedia.org/w/index.php?title=Uluru&oldid=297882194">'+
+            'Click here to See Hotels nearby</a></p></div>'},
+            {'<div id="content"><h1 id="firstHeading" class="firstHeading">Uluru</h1><div id="bodyContent">'+
+            '<a href="https://en.wikipedia.org/w/index.php?title=Uluru&oldid=297882194">'+
+            'Click here to See Hotels nearby</a></p></div>'},
+            {'<div id="content"><h1 id="firstHeading" class="firstHeading">Uluru</h1><div id="bodyContent">'+
+            '<a href="https://en.wikipedia.org/w/index.php?title=Uluru&oldid=297882194">'+
+            'Click here to See Hotels nearby</a></p></div>'},
+            {'<div id="content"><h1 id="firstHeading" class="firstHeading">Uluru</h1><div id="bodyContent">'+
+            '<a href="https://en.wikipedia.org/w/index.php?title=Uluru&oldid=297882194">'+
+            'Click here to See Hotels nearby</a></p></div>'},
+            {'<div id="content"><h1 id="firstHeading" class="firstHeading">Uluru</h1><div id="bodyContent">'+
+            '<a href="https://en.wikipedia.org/w/index.php?title=Uluru&oldid=297882194">'+
+            'Click here to See Hotels nearby</a></p></div>'}
+        ];
+        return statiumInfo[poisiton];
+    }
+
+    var infowindow = new google.maps.InfoWindow({
+        content: contentString,
+        maxWidth: 200
+    });
+
     var stadiumMarkers = stadiumLocations.map(function(location, i){
-        return new google.maps.Marker({
+        marker = new google.maps.Marker({
             draggable: false,
             animation: google.maps.Animation.DROP,
             position: location,
             title: stadiumTitles[i % stadiumTitles.length],
             icon: 'assets/images/rugby_ball.png'
         });
+        marker.addListener('click', function() {
+          infowindow.open(stadiumMap, marker);
+        });
+        return marker;
     });
 
     var hotelMap = new google.maps.Map(document.getElementById("hotels"), {

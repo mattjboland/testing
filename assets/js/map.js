@@ -1,41 +1,44 @@
-// Stadiums Map
+
+var hotelMap;
 var stadiumMap;
 var otherInfo = [];
 
-function updateHotelsMap(stadium) {
-    alert('Hotels for '+stadium);
-}
-
 var stadiums = [
     {
+        id: "aviva",
         name: "Aviva Stadium",
         location: {lat: 53.3352, lng: -6.2285},
         info: '<div id="content"><b>Aviva Stadium</b><div id="bodyContent"><a id="avivaHotels" href="#" onclick="updateHotelsMap(aviva);return false;">Click here to see hotels nearby...</a></p></div>'
     },
     {
+        id: "twickenham",
         name: "Twickenham Stadium",
         location: {lat: 51.4559, lng: -0.3415},
-        info: '<div id="content"><b>Twickenham Stadium</b><div id="bodyContent"><a id="twickenhamHotels" href="#" onclick="updateHotelsMap(twickenham);return false;">Click here to see hotels nearby...</a></p></div>'
+        info: '<div id="content"><h3>Twickenham Stadium</h3>'
     },
     {
+        id: "millennium",
         name: "Millennium Stadium",
         location: {lat: 51.4782, lng: -3.1826},
-        info: '<div id="content"><b>Millennium Stadium</b><div id="bodyContent"><a id="millenniumHotels" href="#" onclick="updateHotelsMap(millennium);return false;">Click here to see hotels nearby...</a></p></div>'
+        info: '<div id="content"><h3>Millennium Stadium</h3></div>'
     },
     {
+        id: "murrayfield",
         name: "Murrayfield Stadium",
         location: {lat: 55.9422, lng: -3.2409},
-        info: '<div id="content"><b>Murrayfield Stadium</b><div id="bodyContent"><a id="murrayfieldHotels" href="#" onclick="updateHotelsMap(murrayfield);return false;">Click here to see hotels nearby...</a></p></div>'
+        info: '<div id="content"><h3>Murrayfield Stadium</h3>'
     },
     {
+        id: "stade",
         name: "Stade de France",
         location: {lat: 48.92442731, lng: 2.36011326},
-        info: '<div id="content"><b>Stade de France</b><div id="bodyContent"><a id="stadeHotels" href="#" onclick="updateHotelsMap(stade);return false;">Click here to see hotels nearby...</a></p></div>'
+        info: '<div id="content"><h3>Stade de France</h3>'
     },
     {
+        id: "stadio",
         name: "Stadio Olimpico",
         location: {lat: 41.9341, lng: 12.4547},
-        info: '<div id="content"><b>Stadio Olimpico</b><div id="bodyContent"><a id="stadioHotels" href="#" onclick="updateHotelsMap(stadio);return false;">Click here to see hotels nearby...</a></p></div>'
+        info: '<div id="content"><h3>Stadio Olimpico</h3>'
     }
 ];
 
@@ -60,6 +63,7 @@ function addStadiums() {
         marker.addListener('click', function () {
             closeOtherInfo();
             infowindow.open(stadiumMap, marker);
+            updateHotelsMap(stadium.id);
             otherInfo[0] = infowindow;
         });
 
@@ -77,20 +81,14 @@ function closeOtherInfo() {
     }
 }
 
+function updateHotelsMap(stadium) {
+    alert('Showing hotels for '+stadium);
+}
+
 function initMap() {
-
-    stadiumMap = new google.maps.Map(document.getElementById("stadiums"), {
-        zoom: 3,
-        center: {
-            lat: 46.1341,
-            lng: -4.7021,
-        }
-    });
-
-    addStadiums();
-   
+    
     // Hotels Map
-    var hotelMap = new google.maps.Map(document.getElementById("hotels"), {
+    hotelMap = new google.maps.Map(document.getElementById("hotels"), {
         zoom: 3,
         center: {
             lat: 46.1341,
@@ -112,4 +110,14 @@ function initMap() {
 
     var hotelMarkerCluster = new MarkerClusterer(hotelMap, hotelMarkers,{imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'});
     */
+
+    stadiumMap = new google.maps.Map(document.getElementById("stadiums"), {
+        zoom: 3,
+        center: {
+            lat: 46.1341,
+            lng: -4.7021,
+        }
+    });
+
+    addStadiums();
 }

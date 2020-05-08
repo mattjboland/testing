@@ -1,5 +1,6 @@
 var hotelMap;
 var hotels;
+var hotelInfoWindow;
 var hotelMarkers = [];
 var stadiumMap;
 var otherInfo = [];
@@ -160,7 +161,7 @@ function showInfoWindow() {
         if (status !== google.maps.places.PlacesServiceStatus.OK) {
             return;
         }
-        infoWindow.open(hotelMap, marker);
+        hotelInfoWindow.open(hotelMap, marker);
         buildIWContent(place);
     });
 }

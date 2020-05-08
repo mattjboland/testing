@@ -63,12 +63,12 @@ function addStadiums() {
         marker.addListener('click', function () {
             closeOtherInfo();
             
-            // Perform hotel search for this stadium
-            updateHotelsMap(i);
-            
             // Show the Stadium name bubble
             infowindow.open(stadiumMap, marker);
             otherInfo[0] = infowindow;
+
+            // Perform hotel search for this stadium
+            updateHotelsMap(i);
         });
 
         return marker;
@@ -90,7 +90,7 @@ function closeOtherInfo() {
 // Search for hotels around the stadium and move map to that location
 function updateHotelsMap(stadiumIndex) {
     hotelMap.panTo(stadiums[stadiumIndex].location);
-    hotelMap.setZoom(10);
+    hotelMap.setZoom(3);
     
     // Search for hotels in the selected city, within the viewport of the map.
     var search = {

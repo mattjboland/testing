@@ -55,7 +55,7 @@ function addStadiums() {
 
         // Add info bubble
         var infowindow = new google.maps.InfoWindow({
-            content: stadiums.info,
+            content: stadium.info,
             maxWidth: 200
         });
 
@@ -68,7 +68,7 @@ function addStadiums() {
             otherInfo[0] = infowindow;
 
             // Perform hotel search for this stadium
-            //updateHotelsMap(i);
+            updateHotelsMap(i);
         });
 
         return marker;
@@ -101,31 +101,45 @@ function updateHotelsMap(stadiumIndex) {
     hotels.nearbySearch(search, function(results, status) {
 
         if (status === google.maps.places.PlacesServiceStatus.OK) {
-            //clearResults();
-            //clearMarkers();
+            clearHotelMarkers();
             
             // Create a marker for each hotel found, and
             // assign a letter of the alphabetic to each marker icon.
 
             for (var i = 0; i < results.length; i++) {
-                var markerLetter = String.fromCharCode('A'.charCodeAt(0) + (i % 26));
-                var markerIcon = 'https://developers.google.com/maps/documentation/javascript/images/marker_green'; + markerLetter + '.png';
+                var labels = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
                 
                 // Use marker animation to drop the icons incrementally on the map.
                 hotelMarkers[i] = new google.maps.Marker({
                     position: results[i].geometry.location,
                     animation: google.maps.Animation.DROP,
-                    icon: markerIcon
+                    icon: markerIcon,
+                    label: labels[i]
                 });
             
                 // If the user clicks a hotel marker, show the details of that hotel in an info window.
                 hotelMarkers[i].placeResult = results[i];
                 //google.maps.event.addListener(hotelMarkers[i], 'click', showInfoWindow);
-                setTimeout(dropMarker(i), i * 100);
-                addResult(results[i], i);
+                setTimeout(dropHotelMarker(i), i * 100);
             }
         }
     });
+}
+
+// Clear any existing hotel results
+function clearHotelMarkers() {
+    for (var i = 0; i < hotelMarkers.length; i++) {
+        if (hotelMarkers[i]) {
+            hotelMarkers[i].setMap(null);
+        }
+    }
+    hotelMarkers = [];
+}
+
+function dropHotelMarker(i) {
+    return function() {
+        hotelMarkers[i].setMap(hotelMap);
+    };
 }
 
 // Main function from index.html to initialise the maps
@@ -158,4 +172,3 @@ function initMap() {
 
     addStadiums();
 }
-

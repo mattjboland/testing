@@ -102,20 +102,17 @@ function updateHotelsMap(stadiumIndex) {
 
         if (status === google.maps.places.PlacesServiceStatus.OK) {
             clearHotelMarkers();
-            
-            // Create a marker for each hotel found, and
-            // assign a letter of the alphabetic to each marker icon.
 
             for (var i = 0; i < results.length; i++) {
+
+                // Create a marker for each hotel found, and assign a letter for the icon label
                 var labels = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
                 
-                // Use marker animation to drop the icons incrementally on the map.
                 hotelMarkers[i] = new google.maps.Marker({
                     draggable: false,
                     position: results[i].geometry.location,
                     animation: google.maps.Animation.DROP,
                     icon: 'https://developers.google.com/maps/documentation/javascript/images/marker_green'+labels[i]+'.png',
-                    label: labels[i]
                 });
             
                 // If the user clicks a hotel marker, show the details of that hotel in an info window.
@@ -125,7 +122,7 @@ function updateHotelsMap(stadiumIndex) {
             }
 
             // Keep the stadium on the htoel results map so its easier to see where you are looking
-            hotelMarkers[results.length] = new google.maps.Marker({
+            hotelMarkers[hotelMarkers.length] = new google.maps.Marker({
                 draggable: false,
                 animation: google.maps.Animation.DROP,
                 position: stadiums[stadiumIndex].location,

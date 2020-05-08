@@ -229,6 +229,9 @@ function initMap() {
     });
 
     hotels = new google.maps.places.PlacesService(hotelMap);
+    hotelInfoWindow = new google.maps.InfoWindow({
+        content: document.getElementById('hotel-info-content')
+    });
     
     // Stadiums Map
     stadiumMap = new google.maps.Map(document.getElementById("stadiums"), {

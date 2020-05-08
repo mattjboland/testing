@@ -1,4 +1,6 @@
 // Stadiums Map
+var stadiumMap;
+var InforObj = [];
 var stadiums = [
     {
         name: "Aviva Stadium",
@@ -33,10 +35,14 @@ var stadiums = [
 ];
 
 function addStadiums() {
+    alert('stadiums.length = '+stadiums.length);
     for (var i = 0; i < stadiums.length; i++) {
+        alert('stadiums[i].location[0] = '+stadiums[i].location[0]);
+        alert('stadiums[i].name = '+stadiums[i].name);
+        alert('stadiums[i].info = '+stadiums[i].info);
 
         const marker = new google.maps.Marker({
-            //map: stadiumMap,
+            map: stadiumMap,
             draggable: false,
             animation: google.maps.Animation.DROP,
             position: stadiums[i].location[0],

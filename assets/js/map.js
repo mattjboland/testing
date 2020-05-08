@@ -111,6 +111,7 @@ function initMap() {
         zoom: 3,
         streetViewControl: false,
         mapTypeControl: false,
+        mapTypeId: 'satellite',
         center: {
             lat: 46.1341,
             lng: -4.7021,

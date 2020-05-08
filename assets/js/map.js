@@ -113,6 +113,7 @@ function initMap() {
 
     var labels = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
+    /*
     var hotelMarkers = stadiumLocations.map(function(location, i){
         return new google.maps.Marker({
             draggable: false,
@@ -123,4 +124,5 @@ function initMap() {
     });
 
     var hotelMarkerCluster = new MarkerClusterer(hotelMap, hotelMarkers,{imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'});
+    */
 }

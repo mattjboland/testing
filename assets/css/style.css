@@ -321,7 +321,6 @@ body, html {
 
  
 /*----------------------------------------Map---*/
-
 div#stadiums {
     min-height: 400px;
 }
@@ -333,11 +332,6 @@ div#hotels {
 .bg-color-map {
     opacity: 1;
     margin-top: 20px;
-}
-
-.bg-color-hotel {
-    opacity: 1;
-    margin-top: 50px;
 }
 
 /*----------------------------------------Graphs---*/

@@ -1,41 +1,36 @@
 var hotelMap;
+var hotels;
 var stadiumMap;
 var otherInfo = [];
 
 // All stadium information
 var stadiums = [
     {
-        id: "aviva",
         name: "Aviva Stadium",
         location: {lat: 53.3352, lng: -6.2285},
         info: '<div id="content"><b>Aviva Stadium</b></div>'
     },
     {
-        id: "twickenham",
         name: "Twickenham Stadium",
         location: {lat: 51.4559, lng: -0.3415},
         info: '<div id="content"><b>Twickenham Stadium</b></div>'
     },
     {
-        id: "millennium",
         name: "Millennium Stadium",
         location: {lat: 51.4782, lng: -3.1826},
         info: '<div id="content"><b>Millennium Stadium</b></div>'
     },
     {
-        id: "murrayfield",
         name: "Murrayfield Stadium",
         location: {lat: 55.9422, lng: -3.2409},
         info: '<div id="content"><b>Murrayfield Stadium</b></div>'
     },
     {
-        id: "stade",
         name: "Stade de France",
         location: {lat: 48.92442731, lng: 2.36011326},
         info: '<div id="content"><b>Stade de France</b></div>'
     },
     {
-        id: "stadio",
         name: "Stadio Olimpico",
         location: {lat: 41.9341, lng: 12.4547},
         info: '<div id="content"><b>Stadio Olimpico</b></div>'
@@ -59,7 +54,7 @@ function addStadiums() {
 
         // Add info bubble
         var infowindow = new google.maps.InfoWindow({
-            content: stadiums[i].info,
+            content: stadiums.info,
             maxWidth: 200
         });
 
@@ -67,7 +62,7 @@ function addStadiums() {
         marker.addListener('click', function () {
             closeOtherInfo();
             infowindow.open(stadiumMap, marker);
-            updateHotelsMap(stadium.id);
+            updateHotelsMap(i);
             otherInfo[0] = infowindow;
         });
 
@@ -87,9 +82,52 @@ function closeOtherInfo() {
     }
 }
 
-// Search for hotels around the stadium and update the hotels map
-function updateHotelsMap(stadium) {
-    alert('Showing hotels for '+stadium);
+// Search for hotels around the stadium and move map to that location
+function updateHotelsMap(stadiumIndex) {
+    alert('Showing hotels for '+stadiums[stadiumIndex].name);
+    hotelMap.panTo(stadiums[stadiumIndex].location);
+    map.setZoom(15);
+    search();
+}
+
+function search(){
+    alert("Searching...");
+    
+    // Search for hotels in the selected city, within the viewport of the map.
+    var search = {
+        bounds: hotelMap.getBounds(),
+        types: ['lodging']
+    };
+
+    hotels.nearbySearch(search, function(results, status) {
+        if (status === google.maps.places.PlacesServiceStatus.OK) {
+            //clearResults();
+            //clearMarkers();
+            
+            // Create a marker for each hotel found, and
+            // assign a letter of the alphabetic to each marker icon.
+            alert('found '+results.length+' hotels');
+
+            /*
+            for (var i = 0; i < results.length; i++) {
+                var markerLetter = String.fromCharCode('A'.charCodeAt(0) + (i % 26));
+                var markerIcon = MARKER_PATH + markerLetter + '.png';
+                // Use marker animation to drop the icons incrementally on the map.
+                markers[i] = new google.maps.Marker({
+                position: results[i].geometry.location,
+                animation: google.maps.Animation.DROP,
+                icon: markerIcon
+            });
+            
+            // If the user clicks a hotel marker, show the details of that hotel
+            // in an info window.
+            markers[i].placeResult = results[i];
+            google.maps.event.addListener(markers[i], 'click', showInfoWindow);
+            setTimeout(dropMarker(i), i * 100);
+            addResult(results[i], i);
+            */
+        }
+    });
 }
 
 // Main function from index.html to initialise the maps
@@ -105,6 +143,8 @@ function initMap() {
             lng: -4.7021,
         }
     });
+
+    hotels = new google.maps.places.PlacesService(hotelMap);
     
     // Stadiums Map
     stadiumMap = new google.maps.Map(document.getElementById("stadiums"), {
@@ -120,3 +160,4 @@ function initMap() {
 
     addStadiums();
 }
+

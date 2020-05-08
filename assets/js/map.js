@@ -36,7 +36,7 @@ function addStadiums() {
     for (var i = 0; i < stadiums.length; i++) {
 
         const marker = new google.maps.Marker({
-            map: stadiumMap,
+            //map: stadiumMap,
             draggable: false,
             animation: google.maps.Animation.DROP,
             position: stadiums[i].location[0],
@@ -78,9 +78,9 @@ function initMap() {
 
     addStadiums();
     
-    //var stadiumMarkerCluster = new MarkerClusterer(stadiumMap, stadiumMarkers,{imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'});
-    
     /*
+    var stadiumMarkerCluster = new MarkerClusterer(stadiumMap, stadiumMarkers,{imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'});
+    
     var stadiumMarkers = stadiums.map(function(stadium, i){
         marker = new google.maps.Marker({
             draggable: false,

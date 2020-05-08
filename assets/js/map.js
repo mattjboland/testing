@@ -17,9 +17,9 @@ var stadiums = [
         info: '<div id="content"><b>Twickenham Stadium</b></div>'
     },
     {
-        name: "Millennium Stadium",
+        name: "Principality Stadium",
         location: {lat: 51.4782, lng: -3.1826},
-        info: '<div id="content"><b>Millennium Stadium</b></div>'
+        info: '<div id="content"><b>Principality Stadium</b></div>'
     },
     {
         name: "Murrayfield Stadium",
@@ -90,7 +90,7 @@ function closeOtherInfo() {
 // Search for hotels around the stadium and move map to that location
 function updateHotelsMap(stadiumIndex) {
     hotelMap.panTo(stadiums[stadiumIndex].location);
-    hotelMap.setZoom(15);
+    hotelMap.setZoom(14);
     
     // Search for hotels in the selected city, within the viewport of the map.
     var search = {
@@ -111,6 +111,7 @@ function updateHotelsMap(stadiumIndex) {
                 
                 // Use marker animation to drop the icons incrementally on the map.
                 hotelMarkers[i] = new google.maps.Marker({
+                    draggable: false,
                     position: results[i].geometry.location,
                     animation: google.maps.Animation.DROP,
                     icon: 'https://developers.google.com/maps/documentation/javascript/images/marker_green'+labels[i]+'.png',

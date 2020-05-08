@@ -4,48 +4,45 @@ var InforObj = [];
 var stadiums = [
     {
         name: "Aviva Stadium",
-        location: [{lat: 53.3352, lng: -6.2285}],
+        location: {lat: 53.3352, lng: -6.2285},
         info: '<div id="content"><h1 id="firstHeading" class="firstHeading">Aviva</h1><div id="bodyContent"><a href="https://www.google.ie>Click here to See Hotels nearby</a></p></div>',
     },
     {
         name: "Twickenham Stadium",
-        location: [{lat: 51.4559, lng: -0.3415}],
+        location: {lat: 51.4559, lng: -0.3415},
         info: '<div id="content"><h1 id="firstHeading" class="firstHeading">Twickenham</h1><div id="bodyContent"><a href="https://en.wikipedia.org/w/index.php?title=Uluru&oldid=297882194">Click here to See Hotels nearby</a></p></div>'
     },
     {
         name: "Millennium Stadium",
-        location: [{lat: 51.4782, lng: -3.1826}],
+        location: {lat: 51.4782, lng: -3.1826},
         info: '<div id="content"><h1 id="firstHeading" class="firstHeading">Millennium</h1><div id="bodyContent"><a href="https://en.wikipedia.org/w/index.php?title=Uluru&oldid=297882194">Click here to See Hotels nearby</a></p></div>'
     },
     {
         name: "Murrayfield Stadium",
-        location: [{lat: 55.9422, lng: -3.2409}],
+        location: {lat: 55.9422, lng: -3.2409},
         info: '<div id="content"><h1 id="firstHeading" class="firstHeading">Murrayfield</h1><div id="bodyContent"><a href="https://en.wikipedia.org/w/index.php?title=Uluru&oldid=297882194">Click here to See Hotels nearby</a></p></div>'
     },
     {
         name: "Stade de France",
-        location: [{lat: 48.92442731, lng: 2.36011326}],
+        location: {lat: 48.92442731, lng: 2.36011326},
         info: '<div id="content"><h1 id="firstHeading" class="firstHeading">Stade de France</h1><div id="bodyContent"><a href="https://en.wikipedia.org/w/index.php?title=Uluru&oldid=297882194">Click here to See Hotels nearby</a></p></div>'
     },
     {
         name: "Stadio Olimpico",
-        location: [{lat: 41.9341, lng: 12.4547}],
+        location: {lat: 41.9341, lng: 12.4547},
         info: '<div id="content"><h1 id="firstHeading" class="firstHeading">Stadio Olimpico</h1><div id="bodyContent"><a href="https://en.wikipedia.org/w/index.php?title=Uluru&oldid=297882194">Click here to See Hotels nearby</a></p></div>' 
     }
 ];
 
 function addStadiums() {
-    alert('stadiums.length = '+stadiums.length);
+
     for (var i = 0; i < stadiums.length; i++) {
-        alert('stadiums[i].location[0] = '+stadiums[i].location[0]);
-        alert('stadiums[i].name = '+stadiums[i].name);
-        alert('stadiums[i].info = '+stadiums[i].info);
 
         const marker = new google.maps.Marker({
             map: stadiumMap,
             draggable: false,
             animation: google.maps.Animation.DROP,
-            position: stadiums[i].location[0],
+            position: stadiums[i].location,
             title: stadiums[i].name,
             icon: 'assets/images/rugby_ball.png'
         });

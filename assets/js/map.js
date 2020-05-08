@@ -62,8 +62,10 @@ function addStadiums() {
         marker.addListener('click', function () {
             closeOtherInfo();
             infowindow.open(stadiumMap, marker);
-            updateHotelsMap(i);
             otherInfo[0] = infowindow;
+
+            // Perform hotel search for this stadium
+            updateHotelsMap(i);
         });
 
         return marker;

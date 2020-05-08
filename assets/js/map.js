@@ -38,7 +38,7 @@ function addStadiums() {
 
     for (var i = 0; i < stadiums.length; i++) {
 
-        const marker = new google.maps.Marker({
+        var marker = new google.maps.Marker({
             map: stadiumMap,
             draggable: false,
             animation: google.maps.Animation.DROP,
@@ -47,14 +47,14 @@ function addStadiums() {
             icon: 'assets/images/rugby_ball.png'
         });
 
-        const infowindow = new google.maps.InfoWindow({
+        var infowindow = new google.maps.InfoWindow({
             content: stadiums[i].info,
             maxWidth: 200
         });
 
         marker.addListener('click', function () {
             closeOtherInfo();
-            infowindow.open(marker.get('stadiumMap'), marker);
+            infowindow.open(stadiumMap, marker);
             InforObj[0] = infowindow;
         });
 
@@ -71,7 +71,7 @@ function closeOtherInfo() {
 
 function initMap() {
 
-    var stadiumMap = new google.maps.Map(document.getElementById("stadiums"), {
+    stadiumMap = new google.maps.Map(document.getElementById("stadiums"), {
         zoom: 3,
         center: {
             lat: 46.1341,

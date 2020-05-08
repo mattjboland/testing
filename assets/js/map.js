@@ -1,4 +1,3 @@
-
 var hotelMap;
 var stadiumMap;
 var otherInfo = [];
@@ -100,6 +99,7 @@ function initMap() {
     hotelMap = new google.maps.Map(document.getElementById("hotels"), {
         zoom: 3,
         streetViewControl: true,
+        mapTypeControl: true,
         center: {
             lat: 46.1341,
             lng: -4.7021,
@@ -110,6 +110,7 @@ function initMap() {
     stadiumMap = new google.maps.Map(document.getElementById("stadiums"), {
         zoom: 3,
         streetViewControl: false,
+        mapTypeControl: false,
         center: {
             lat: 46.1341,
             lng: -4.7021,

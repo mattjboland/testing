@@ -90,7 +90,7 @@ function closeOtherInfo() {
 // Search for hotels around the stadium and move map to that location
 function updateHotelsMap(stadiumIndex) {
     hotelMap.panTo(stadiums[stadiumIndex].location);
-    hotelMap.setZoom(20);
+    hotelMap.setZoom(10);
     
     // Search for hotels in the selected city, within the viewport of the map.
     var search = {

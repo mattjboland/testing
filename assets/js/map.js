@@ -1,36 +1,36 @@
 // Stadiums Map
 var stadiumMap;
-var InforObj = [];
+var otherInfo = [];
 var stadiums = [
     {
         name: "Aviva Stadium",
         location: {lat: 53.3352, lng: -6.2285},
-        info: '<div id="content"><h1 id="firstHeading" class="firstHeading">Aviva</h1><div id="bodyContent"><a href="https://www.google.ie>Click here to See Hotels nearby</a></p></div>',
+        info: '<div id="content"><b>Aviva Stadium</b><div id="bodyContent"><a id="avivaHotels" href="#" onclick="updateHotelsMap("aviva");return false;">Click here to see hotels nearby...</a></p></div>'
     },
     {
         name: "Twickenham Stadium",
         location: {lat: 51.4559, lng: -0.3415},
-        info: '<div id="content"><h1 id="firstHeading" class="firstHeading">Twickenham</h1><div id="bodyContent"><a href="https://en.wikipedia.org/w/index.php?title=Uluru&oldid=297882194">Click here to See Hotels nearby</a></p></div>'
+        info: '<div id="content"><b>Twickenham Stadium</b><div id="bodyContent"><a id="twickenhamHotels" href="#" onclick="updateHotelsMap("twickenham");return false;">Click here to see hotels nearby...</a></p></div>'
     },
     {
         name: "Millennium Stadium",
         location: {lat: 51.4782, lng: -3.1826},
-        info: '<div id="content"><h1 id="firstHeading" class="firstHeading">Millennium</h1><div id="bodyContent"><a href="https://en.wikipedia.org/w/index.php?title=Uluru&oldid=297882194">Click here to See Hotels nearby</a></p></div>'
+        info: '<div id="content"><b>Millennium Stadium</b><div id="bodyContent"><a id="millenniumHotels" href="#" onclick="updateHotelsMap("millennium");return false;">Click here to see hotels nearby...</a></p></div>'
     },
     {
         name: "Murrayfield Stadium",
         location: {lat: 55.9422, lng: -3.2409},
-        info: '<div id="content"><h1 id="firstHeading" class="firstHeading">Murrayfield</h1><div id="bodyContent"><a href="https://en.wikipedia.org/w/index.php?title=Uluru&oldid=297882194">Click here to See Hotels nearby</a></p></div>'
+        info: '<div id="content"><b>Murrayfield Stadium</b><div id="bodyContent"><a id="murrayfieldHotels" href="#" onclick="updateHotelsMap("murrayfield");return false;">Click here to see hotels nearby...</a></p></div>'
     },
     {
         name: "Stade de France",
         location: {lat: 48.92442731, lng: 2.36011326},
-        info: '<div id="content"><h1 id="firstHeading" class="firstHeading">Stade de France</h1><div id="bodyContent"><a href="https://en.wikipedia.org/w/index.php?title=Uluru&oldid=297882194">Click here to See Hotels nearby</a></p></div>'
+        info: '<div id="content"><b>Stade de France</b><div id="bodyContent"><a id="stadeHotels" href="#" onclick="updateHotelsMap("stade");return false;">Click here to see hotels nearby...</a></p></div>'
     },
     {
         name: "Stadio Olimpico",
         location: {lat: 41.9341, lng: 12.4547},
-        info: '<div id="content"><h1 id="firstHeading" class="firstHeading">Stadio Olimpico</h1><div id="bodyContent"><a href="https://en.wikipedia.org/w/index.php?title=Uluru&oldid=297882194">Click here to See Hotels nearby</a></p></div>' 
+        info: '<div id="content"><b>Stadio Olimpico</b><div id="bodyContent"><a id="stadioHotels" href="#" onclick="updateHotelsMap("stadio");return false;">Click here to see hotels nearby...</a></p></div>'
     }
 ];
 
@@ -55,7 +55,7 @@ function addStadiums() {
         marker.addListener('click', function () {
             closeOtherInfo();
             infowindow.open(stadiumMap, marker);
-            InforObj[0] = infowindow;
+            otherInfo[0] = infowindow;
         });
 
         return marker;
@@ -65,11 +65,15 @@ function addStadiums() {
 }
 
 function closeOtherInfo() {
-    if (InforObj.length > 0) {
-        InforObj[0].set("marker", null);
-        InforObj[0].close();
-        InforObj.length = 0;
+    if (otherInfo.length > 0) {
+        otherInfo[0].set("marker", null);
+        otherInfo[0].close();
+        otherInfo.length = 0;
     }
+}
+
+function updateHotelsMap(stadium) {
+    alert('Hotels for '+stadium);
 }
 
 function initMap() {

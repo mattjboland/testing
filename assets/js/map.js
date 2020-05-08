@@ -90,6 +90,7 @@ function closeOtherInfo() {
 // Search for hotels around the stadium and move map to that location
 function updateHotelsMap(stadiumIndex) {
     hotelMap.panTo(stadiums[stadiumIndex].location);
+    // If zoom is too far you get no results...
     hotelMap.setZoom(14);
     
     // Search for hotels in the selected city, within the viewport of the map.
@@ -129,6 +130,7 @@ function updateHotelsMap(stadiumIndex) {
                 title: stadiums[stadiumIndex].name,
                 icon: 'assets/images/rugby_ball.png'
             });
+            setTimeout(dropHotelMarker(hotelMarkers.length), hotelMarkers.length * 100);
         }
     });
 }

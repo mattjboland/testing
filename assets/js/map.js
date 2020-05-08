@@ -36,14 +36,14 @@ var stadiums = [
 
 function addStadiums() {
 
-    for (var i = 0; i < stadiums.length; i++) {
+    var stadiumMarkers = stadiums.map(function(stadium, i){
 
         var marker = new google.maps.Marker({
             map: stadiumMap,
             draggable: false,
             animation: google.maps.Animation.DROP,
-            position: stadiums[i].location,
-            title: stadiums[i].name,
+            position: stadium.location,
+            title: stadium.name,
             icon: 'assets/images/rugby_ball.png'
         });
 
@@ -58,7 +58,10 @@ function addStadiums() {
             InforObj[0] = infowindow;
         });
 
-    }
+        return marker;
+    });
+
+    var stadiumMarkerCluster = new MarkerClusterer(stadiumMap, stadiumMarkers,{imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'});
 }
 
 function closeOtherInfo() {
@@ -80,30 +83,6 @@ function initMap() {
     });
 
     addStadiums();
-    
-    /*
-    var stadiumMarkerCluster = new MarkerClusterer(stadiumMap, stadiumMarkers,{imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'});
-    
-    var stadiumMarkers = stadiums.map(function(stadium, i){
-        marker = new google.maps.Marker({
-            draggable: false,
-            animation: google.maps.Animation.DROP,
-            position: stadium.location,
-            title: stadium.name[i % stadiumTitles.length],
-            icon: 'assets/images/rugby_ball.png'
-        });
-
-        var infowindow = new google.maps.InfoWindow({
-            content: stadium.info,
-            maxWidth: 200
-        });
-
-        marker.addListener('click', function() {
-          infowindow.open(stadiumMap, marker);
-        });
-        return marker;
-    });
-    */
    
     // Hotels Map
     var hotelMap = new google.maps.Map(document.getElementById("hotels"), {

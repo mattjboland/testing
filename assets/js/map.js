@@ -54,16 +54,7 @@ function addStadiums() {
             infowindow.open(marker.get('stadiumMap'), marker);
             InforObj[0] = infowindow;
         });
-        marker.addListener('mouseover', function () {
-            closeOtherInfo();
-            infowindow.open(marker.get('stadiumMap'), marker);
-            InforObj[0] = infowindow;
-        });
-        marker.addListener('mouseout', function () {
-            closeOtherInfo();
-            infowindow.close();
-            InforObj[0] = infowindow;
-        });
+
     }
 }
 
@@ -85,7 +76,7 @@ function initMap() {
         }
     });
 
-    addMarkerInfo();
+    addStadiums();
     
     //var stadiumMarkerCluster = new MarkerClusterer(stadiumMap, stadiumMarkers,{imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'});
     

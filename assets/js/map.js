@@ -86,14 +86,9 @@ function closeOtherInfo() {
 
 // Search for hotels around the stadium and move map to that location
 function updateHotelsMap(stadiumIndex) {
-    alert('Showing hotels for '+stadiums[stadiumIndex].name);
     hotelMap.panTo(stadiums[stadiumIndex].location);
     hotelMap.setZoom(15);
     search();
-}
-
-function search(){
-    alert("Searching...");
     
     // Search for hotels in the selected city, within the viewport of the map.
     var search = {
@@ -102,13 +97,13 @@ function search(){
     };
 
     hotels.nearbySearch(search, function(results, status) {
+        alert('found '+results.length+' hotels... Status = '+status);
         if (status === google.maps.places.PlacesServiceStatus.OK) {
             //clearResults();
             //clearMarkers();
             
             // Create a marker for each hotel found, and
             // assign a letter of the alphabetic to each marker icon.
-            alert('found '+results.length+' hotels');
 
             /*
             for (var i = 0; i < results.length; i++) {

@@ -156,7 +156,7 @@ function dropHotelMarker(i) {
 // anchored on the marker for the hotel that the user selected.
 function showInfoWindow() {
     var marker = this;
-    places.getDetails({placeId: marker.placeResult.place_id}, function(place, status) {
+    hotels.getDetails({placeId: marker.placeResult.place_id}, function(place, status) {
         if (status !== google.maps.places.PlacesServiceStatus.OK) {
             return;
         }

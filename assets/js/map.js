@@ -122,6 +122,15 @@ function updateHotelsMap(stadiumIndex) {
                 //google.maps.event.addListener(hotelMarkers[i], 'click', showInfoWindow);
                 setTimeout(dropHotelMarker(i), i * 100);
             }
+
+            // Keep the stadium on the htoel results map so its easier to see where you are looking
+            hotelMarkers[results.length] = new google.maps.Marker({
+                draggable: false,
+                animation: google.maps.Animation.DROP,
+                position: stadiums[stadiumIndex].location,
+                title: stadiums[stadiumIndex].name,
+                icon: 'assets/images/rugby_ball.png'
+            });
         }
     });
 }

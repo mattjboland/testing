@@ -86,7 +86,7 @@ function closeOtherInfo() {
 function updateHotelsMap(stadiumIndex) {
     alert('Showing hotels for '+stadiums[stadiumIndex].name);
     hotelMap.panTo(stadiums[stadiumIndex].location);
-    map.setZoom(15);
+    hotelMap.setZoom(15);
     search();
 }
 
